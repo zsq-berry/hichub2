@@ -19,7 +19,7 @@ Options:
 ```
 
 Call multiple states hichub:
-![alt text](https://github.com/zsq-berry/hichub2/blob/d073e9dd2f6dc17453821f3692f9c56df7fa15ee/Picture2.png)
+![alt text](https://github.com/zsq-berry/hichub2/blob/4d83ccb67a13424b5308eb256475401215453b44/Picture2.png)
 ```
 python3 multiple.py
 Options:
