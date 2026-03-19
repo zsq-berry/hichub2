@@ -89,28 +89,41 @@ python hichub2.py plot_hub \
 
 Argument	Description    Default
 
---path	Base path for .hic files and input .bed files    Required
+--path	Base path for .hic files and input .bed files.    Required
 
---name	List of sample names (must match .hic filenames)    Required
+--name	List of sample names (must match .hic filenames).    Required
 
---resolution	Hi-C resolution in base pairs (BP)    10000
+--resolution	Hi-C resolution in base pairs (BP).    10000
 
---norm	Hi-C normalization method (NONE, VC, KR, SCALE, etc.)	NONE
+--norm	Hi-C normalization method (NONE, VC, KR, SCALE, etc.).	NONE
 
---data_type	Data extraction type (oe: observed/expected, observed)    oe
+--data_type	Data extraction type (oe: observed/expected, observed).    oe
 
---distance	Max interaction span in bins (e.g., 200 = 2Mb at 10kb)    200
+--distance	Max interaction span in bins (e.g., 200 = 2Mb at 10kb).   200
 
---score_thres	Threshold for interaction score filtering    2.0
+--score_thres	Threshold for interaction score filtering.    2.0
 
---res_community	Resolution for Leiden algorithm (higher = more fragmented hubs)    0.6
+--res_community	Resolution for Leiden algorithm (higher = more fragmented hubs).   0.6
 
---gap_size	Max gap (in bins) allowed when stitching adjacent regions    2
+--gap_size	Max gap (in bins) allowed when stitching adjacent regions.    2
 
---threads	Number of CPU cores for parallel processing    23
+--threads	Number of CPU cores for parallel processing.    23
 
---n_clusters	Number of clusters for K-means    6
+--n_clusters	Number of clusters for K-means.    6
 
+--pval	p-value threshold for Wilcoxon rank-sum test (varhub).    0.001
+
+--qval	q-value (FDR) threshold for differential hubs (pairhub).    0.001
+
+--order	User-defined cluster ID sequence for manual reordering.    Required
+
+--gene	Target gene name for local hub visualization.    Required
+
+--window	Bins upstream/downstream for local plotting.    60 230
+
+--output	Filename for the resulting BED file.    hichub_results.bed
+
+--plot_out	Filename for the generated heatmap or visualization plot.    Required
 
 ## Output Description
 BED File:
