@@ -68,15 +68,25 @@ python hichub2.py cluster_pairhubs \
 
 Argument	Description	Default
 --path	Base path for .hic files and input .bed files	Required
+
 --name	List of sample names (must match .hic filenames)	Required
+
 --resolution	Hi-C resolution in base pairs (BP)	10000
+
 --norm	Hi-C normalization method (NONE, VC, KR, SCALE, etc.)	NONE
+
 --data_type	Data extraction type (oe: observed/expected, observed)	oe
+
 --distance	Max interaction span in bins (e.g., 200 = 2Mb at 10kb)	200
+
 --score_thres	Threshold for interaction score filtering	2.0
+
 --res_community	Resolution for Leiden algorithm (higher = more fragmented hubs)	0.6
+
 --gap_size	Max gap (in bins) allowed when stitching adjacent regions	2
+
 --threads	Number of CPU cores for parallel processing	23
+
 --n_clusters	Number of clusters for K-means	6
 
 
