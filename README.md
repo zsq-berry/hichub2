@@ -21,7 +21,7 @@ pip install hicstraw igraph leidenalg pybedtools qnorm scikit-learn seaborn pand
 
 ## Command Details
 
-1. singlehub (Single Sample Identification)Used for initial exploration of interaction hubs in a single cell line or tissue.
+1. singlehub (Single Sample Identification) Used for initial exploration of interaction hubs in a single cell line or tissue.
 ```
 python hichub2.py singlehub \
     --path ./data/ \
@@ -29,7 +29,7 @@ python hichub2.py singlehub \
     --resolution 10000 \
     --output CellA_hubs.bed
 ```
-2. pairhub (Two-Sample Differential)Uses Wilcoxon rank-sum tests to find differential interaction regions between two samples.
+2. pairhub (Two-Sample Differential) Uses Wilcoxon rank-sum tests to find differential interaction regions between two samples.
 ```
 python hichub2.py pairhub \
     --path ./data/ \
@@ -37,7 +37,7 @@ python hichub2.py pairhub \
     --qval 0.001 \
     --output AB_diff.bed
 ```
-3. varhub (Multi-Sample Variance)Identifies hubs that show high variance across all input samples.
+3. varhub (Multi-Sample Variance) Identifies hubs that show high variance across all input samples.
 ```
 python hichub2.py varhub \
     --path ./data/ \
@@ -45,7 +45,7 @@ python hichub2.py varhub \
     --pval 0.05 \
     --output multi_var.bed
 ```
-4. cluster_hubs (Simple Clustering)Clusters an existing output file and generates a heatmap.
+4. cluster_hubs (Simple Clustering) Clusters an existing output file and generates a heatmap.
 ```
 python hichub2.py cluster_hubs \
     --input hubs.bed \
@@ -53,7 +53,7 @@ python hichub2.py cluster_hubs \
     --n_clusters 8 \
     --plot_out heatmap.png
 ```
-5. cluster_pairhubs (Integrated Merge & Cluster)A powerful sub-command that automatically handles input BED files located in the --path.
+5. cluster_pairhubs (Integrated Merge & Cluster) A powerful sub-command that automatically handles input BED files located in the --path.
 ```
 python hichub2.py cluster_pairhubs \
     --path /home/manager/hic_folder/ \
@@ -64,6 +64,27 @@ python hichub2.py cluster_pairhubs \
     --output final_combined_results.bed \
     --plot_out cluster_heatmap.png
 ```
+6. reorder_hubs (Reorder HiCHub clusters) Reassigns cluster IDs based on a user-defined sequence (e.g., 4 2 1 3 5 6) to ensure the heatmap and BED file follow a logical biological or intensity-based order.
+```
+python hichub2.py reorder_hubs \
+    --input hichub_cluster.bed \
+    --name GM12878 K562 HepG2 \
+    --order 4 2 1 3 5 6 \
+    --output hichub_reordered.bed \
+    --plot_out reordered_heatmap.png
+```
+7. plot_hub (Draw local contact maps) Generates comparative Hi-C heatmaps for a specific gene locus, overlaying identified hub regions with rectangular boxes to highlight structural differences.
+```
+python hichub2.py plot_hub \
+    --path /home/manager/hic_data/ \
+    --name GM12878 K562 HepG2 \
+    --input_cluster hichub_reordered.bed \
+    --anno_bed /home/manager/annotation/hg38_prom.bed \
+    --gene NOSTRIN \
+    --window 60 230 \
+    --plot_out NOSTRIN_hub.png
+```
+
 ## Parameter List
 
 Argument	Description    Default
